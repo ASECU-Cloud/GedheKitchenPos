@@ -1,4 +1,5 @@
 import AppLayout from '@/layouts/app-layout';
+import { rupiahConverter } from '@/lib/utils';
 import { dashboard } from '@/routes';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';
@@ -27,14 +28,14 @@ export default function Dashboard() {
                         {/* <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" /> */}
                         <div className="flex h-full flex-col justify-around">
                             <div className="text-4xl font-bold underline">Income </div>
-                            <div className="bottom-2 pb-4 text-end text-3xl">Rp. 100.000,00</div>
+                            <div className="bottom-2 pb-4 text-end text-3xl">Rp. {rupiahConverter(1000000)}</div>
                         </div>
                     </div>
                     <div className="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 p-4 dark:border-sidebar-border">
                         {/* <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" /> */}
                         <div className="flex h-full flex-col justify-around">
                             <div className="text-4xl font-bold underline">Expense </div>
-                            <div className="bottom-2 pb-4 text-end text-3xl">Rp. 100.000,00</div>
+                            <div className="bottom-2 pb-4 text-end text-3xl">Rp. {rupiahConverter(845480)}</div>
                         </div>
                     </div>
                 </div>
