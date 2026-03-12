@@ -3,7 +3,7 @@ import { type SharedData } from '@/types';
 import { Head, Link, usePage } from '@inertiajs/react';
 
 export default function Welcome() {
-    const { auth } = usePage<SharedData>().props;
+    const { auth, quote } = usePage<SharedData>().props;
 
     return (
         <>
@@ -11,8 +11,8 @@ export default function Welcome() {
                 <link rel="preconnect" href="https://fonts.bunny.net" />
                 <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
             </Head>
-            <div className="flex min-h-screen flex-col items-center bg-[#FDFDFC] p-6 text-[#1b1b18] lg:justify-center lg:p-8 dark:bg-[#0a0a0a]">
-                <header className="mb-6 w-full max-w-[335px] text-sm not-has-[nav]:hidden lg:max-w-4xl">
+            <div className="flex min-h-svh flex-col items-center bg-[#FDFDFC] p-6 text-[#1b1b18] lg:justify-center lg:p-8 dark:bg-[#0a0a0a]">
+                <header className="mb-6 w-full max-w-83.75 text-sm not-has-[nav]:hidden lg:max-w-4xl">
                     <nav className="flex items-center justify-end gap-4">
                         {auth.user ? (
                             <Link
@@ -39,9 +39,14 @@ export default function Welcome() {
                         )}
                     </nav>
                 </header>
-                <div className="flex w-full items-center justify-center opacity-100 transition-opacity duration-750 lg:grow starting:opacity-0">
-                    <main className="flex w-full max-w-[335px] flex-col-reverse lg:max-w-4xl lg:flex-row">
-                        <h1 className="text-4xl font-bold text-gray-400">GEDHE Kitchen POS</h1>
+                <div className="flex w-full cursor-default items-center justify-center opacity-100 transition-opacity duration-750 lg:grow starting:opacity-0">
+                    <main className="m-auto flex w-full max-w-83.75 flex-col-reverse lg:max-w-4xl lg:flex-row">
+                        <h1 className="text-4xl font-bold text-gray-400">GEDHE Kitchen POS </h1>
+                        {quote && (
+                            <p className="mb-0 ml-4 text-lg text-gray-500 italic">
+                                "{quote.message}"<br />— {quote.author}
+                            </p>
+                        )}
                     </main>
                 </div>
                 <div className="hidden h-14.5 lg:block"></div>
